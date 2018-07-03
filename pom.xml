@@ -32,6 +32,9 @@
 			<groupId>Waarp</groupId>
 			<artifactId>WaarpR66</artifactId>
 			<version>3.0.8</version>
+			<!-- below 2 lines are added for TRAVIS purpose -->
+			<scope>system</scope>
+			<systemPath>${TRAVIS_BUILD_DIR}/src/main/webapp/WEB-INF/lib/WaarpR66-3.0.8.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -64,11 +67,15 @@
 			<artifactId>WaarpSnmp</artifactId>
 			<version>3.0.3</version>
 			<optional>true</optional>
+			<scope>system</scope>
+			<systemPath>${TRAVIS_BUILD_DIR}/src/main/webapp/WEB-INF/lib/WaarpSnmp-3.0.3.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>Anchel</groupId>
 			<artifactId>Anchel-Storage</artifactId>
 			<version>1.1.1</version>
+			 <scope>system</scope>
+		<systemPath>${TRAVIS_BUILD_DIR}/src/main/webapp/WEB-INF/lib/Anchel-Storage-1.1.1.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -89,6 +96,8 @@
 			<groupId>javasysmon</groupId>
 			<artifactId>javasysmon</artifactId>
 			<version>0.3.6</version>
+			<scope>system</scope>
+		<systemPath>${TRAVIS_BUILD_DIR}/src/main/webapp/WEB-INF/lib/javasysmon-0.3.6.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.amazonaws</groupId>
