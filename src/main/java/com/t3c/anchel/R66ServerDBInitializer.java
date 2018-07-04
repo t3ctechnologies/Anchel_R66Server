@@ -8,13 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.waarp.openr66.server.ServerInitDatabase;
 
 public class R66ServerDBInitializer {
-
-	private static final Logger logger = LoggerFactory.getLogger(R66ServerDBInitializer.class);
 
 	public void initdb() throws SQLException {
 		Properties properties = new Properties();
@@ -42,28 +38,28 @@ public class R66ServerDBInitializer {
 			String[] loadRules = { waarpconfig, "-dir", directory };
 			String[] loadAuths = { waarpconfig, "-auth", waarpauthFile.toString() };
 			String[] loadLimit = { waarpconfig, "-limit", waarplimitFile.toString() };
-			
+
 			ServerInitDatabase.initR66database(waarpdbinit);
-			logger.debug("Anchel R66 server databse is initiated");
+			System.out.println("Anchel R66 server databse is initiated");
 
 			ServerInitDatabase.initR66database(loadBusiness);
-			logger.debug("Anchel R66 server, business configuration is loaded");
-			
+			System.out.println("Anchel R66 server, business configuration is loaded");
+
 			ServerInitDatabase.initR66database(loadAlias);
-			logger.debug("Anchel R66 server, aliases configuration is loaded");
-			
+			System.out.println("Anchel R66 server, aliases configuration is loaded");
+
 			ServerInitDatabase.initR66database(loadRoles);
-			logger.debug("Anchel R66 server, roles configuration is loaded");
-			
+			System.out.println("Anchel R66 server, roles configuration is loaded");
+
 			ServerInitDatabase.initR66database(loadRules);
-			logger.debug("Anchel R66 server, directory configuration is loaded");
-			
+			System.out.println("Anchel R66 server, directory configuration is loaded");
+
 			ServerInitDatabase.initR66database(loadAuths);
-			logger.debug("Anchel R66 server, auth configuration is loaded");
-			
+			System.out.println("Anchel R66 server, auth configuration is loaded");
+
 			ServerInitDatabase.initR66database(loadLimit);
-			logger.debug("Anchel R66 server, auth configuration is loaded");
-			
+			System.out.println("Anchel R66 server, auth configuration is loaded");
+
 			ServerInitDatabase.initR66database(update);
 
 			try {
@@ -84,7 +80,7 @@ public class R66ServerDBInitializer {
 				stmt.executeUpdate(s3mappingtab);
 			} catch (Exception e) {
 				e.printStackTrace();
-				logger.error("Table S3BUCKETMAPPING is not created because of : " + e.getMessage());
+				System.out.println("Table S3BUCKETMAPPING is not created because of : " + e.getMessage());
 			} finally {
 				if (conn != null && stmt != null) {
 					conn.close();
@@ -94,7 +90,7 @@ public class R66ServerDBInitializer {
 		}
 		if (propcondition.equals(mycondition2)) {
 			ServerInitDatabase.initR66database(update);
-			logger.debug("Anchel R66 server, database is updated");
+			System.out.println("Anchel R66 server, database is updated");
 		}
 	}
 }

@@ -8,35 +8,31 @@ import java.util.Enumeration;
 
 import javax.servlet.ServletContextEvent;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoaderListener;
 import org.waarp.openr66.protocol.exception.OpenR66ProtocolPacketException;
 import org.waarp.openr66.server.R66Server;
 
-public class AnchelR66Server extends ContextLoaderListener{
-
-	private static final Logger logger = LoggerFactory.getLogger(AnchelR66Server.class);
+public class AnchelR66Server extends ContextLoaderListener {
 
 	public void contextInitialized(ServletContextEvent arg0) {
 
 		try {
 			new R66ServerDBInitializer().initdb();
-			logger.debug("Anchel R66Server is starting...");
+			System.out.println("Anchel R66Server is starting...");
 			File configFile = new File(this.getClass().getClassLoader().getResource("config-serverA.xml").getFile());
 			String path = null;
 			if (configFile.exists()) {
 				path = configFile.toString();
 			}
 			String[] waarpconfig = { path };
-			logger.debug("Anchel R66 server databse is initiating");
+			System.out.println("Anchel R66 server databse is initiating");
 			R66Server.initR66Server(waarpconfig);
 		} catch (OpenR66ProtocolPacketException e) {
 			e.printStackTrace();
-			logger.error("Anchel R66 server is not started " + e.getMessage());
+			System.out.println("Anchel R66 server is not started " + e.getMessage());
 		} catch (SQLException e) {
 			e.printStackTrace();
-			logger.error("Anchel R66 database connection is not closed " + e.getMessage());
+			System.out.println("Anchel R66 database connection is not closed " + e.getMessage());
 		}
 	}
 
@@ -47,17 +43,17 @@ public class AnchelR66Server extends ContextLoaderListener{
 			Driver driver = drivers.nextElement();
 			if (driver.getClass().getClassLoader() == cl) {
 				try {
-					logger.info("Deregistering JDBC driver {}", driver);
+					System.out.println("Deregistering JDBC driver " + driver);
 					DriverManager.deregisterDriver(driver);
 				} catch (SQLException e) {
 					e.printStackTrace();
-					logger.error("Error deregistering JDBC driver {}", driver, e);
+					System.out.println("Error deregistering JDBC driver " + driver);
 				}
 			} else {
-				logger.trace("Not deregistering JDBC driver {} as it does not belong to this webapp's ClassLoader",
-						driver);
+				System.out.println(
+						"Not deregistering JDBC driver {} as it does not belong to this webapp's ClassLoader" + driver);
 			}
 		}
-		logger.error("Anchel R66 server is terminated");
+		System.out.println("Anchel R66 server is terminated");
 	}
 }
