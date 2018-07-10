@@ -9,14 +9,16 @@ import java.util.Enumeration;
 import javax.servlet.ServletContextEvent;
 
 import org.springframework.web.context.ContextLoaderListener;
-import org.waarp.openr66.protocol.exception.OpenR66ProtocolPacketException;
-import org.waarp.openr66.server.R66Server;
+
+import com.t3c.anchel.openr66.protocol.exception.OpenR66ProtocolPacketException;
+import com.t3c.anchel.openr66.server.R66Server;
 
 public class AnchelR66Server extends ContextLoaderListener {
 
 	public void contextInitialized(ServletContextEvent arg0) {
 
 		try {
+			System.out.println("Anchel R66Server DB is initiating...");
 			new R66ServerDBInitializer().initdb();
 			System.out.println("Anchel R66Server is starting...");
 			File configFile = new File(this.getClass().getClassLoader().getResource("config-serverA.xml").getFile());

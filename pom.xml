@@ -23,28 +23,8 @@
   </repositories>
 	<dependencies>
 		<dependency>
-    	<groupId>ch.qos.logback</groupId>
-    	<artifactId>logback-classic</artifactId>
-    	<version>1.1.8</version>
-    </dependency>
-	<dependency>
-    	<groupId>ch.qos.logback</groupId>
-    	<artifactId>logback-core</artifactId>
-    	<version>1.1.8</version>
-    </dependency>
-	 <dependency>
-        <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-api</artifactId>
-          <version>1.7.22</version>
-    </dependency>
-	<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>slf4j-simple</artifactId>
-		<version>1.7.7</version>
-	</dependency>
-		<dependency>
-			<groupId>Waarp</groupId>
-			<artifactId>WaarpR66</artifactId>
+			<groupId>Anchel</groupId>
+			<artifactId>Anchel-R66</artifactId>
 			<version>3.0.8</version>
 			<!-- below 2 lines are added for TRAVIS purpose -->
 			<scope>system</scope>

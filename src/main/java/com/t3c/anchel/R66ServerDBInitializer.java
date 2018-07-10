@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-import org.waarp.openr66.server.ServerInitDatabase;
+import com.t3c.anchel.openr66.server.ServerInitDatabase;
 
 public class R66ServerDBInitializer {
 
