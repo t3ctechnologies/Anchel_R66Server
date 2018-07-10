@@ -28,7 +28,7 @@
 			<version>3.0.8</version>
 			<!-- below 2 lines are added for TRAVIS purpose -->
 			<scope>system</scope>
-			<systemPath>${TRAVIS_BUILD_DIR}/src/main/webapp/WEB-INF/lib/WaarpR66-3.0.8.jar</systemPath>
+			<systemPath>${TRAVIS_BUILD_DIR}/src/main/webapp/WEB-INF/lib/Anchel-R66-3.0.8.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
